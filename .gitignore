@@ -1,0 +1,6 @@
+
+# virtual machine
+venv
+
+# vscode files
+.vscode
