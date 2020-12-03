@@ -49,18 +49,18 @@ def parse_text(soup):
 if re.match('https://(www.)*nytimes.com/.+', url) is None:
     print('please enter a valid nytimes article')
 
-elif re.match('https://(www.)*nytimes.com/live/.*', url) is not None:
+elif re.match('https://(www.)*nytimes.com/live(.*)', url) is not None:
     print('Sorry. I do not scrape nytimes live blogs')
 
-elif re.match('https://(www.)*nytimes.com/interactive/.*', url) is not None:
+elif re.match('https://(www.)*nytimes.com/interactive(.*)', url) is not None:
     print('Sorry. I do not scrape nytimes interactive articles')
 
 else:
-    # try:
+    try:
         req = Request(url, headers={'User-Agent' : 'Mozilla/5.0'})
         html = urlopen(req).read().decode('utf-8')
         soup = BeautifulSoup(html, 'html.parser')
         parse_text(soup)
-    # except:
-        # print('There was a problem scraping the data')
+    except:
+        print('There was a problem scraping the data')
 
