@@ -17,7 +17,7 @@ def parse_text(soup):
     article_summary = soup.find(class_='dek')
     article_picture_tag = soup.picture
     article_picture = ''
-    article_paragraphs = soup.find_all(class_='story-text__paragraph')
+    article_paragraphs = soup.find_all(class_='story-text__paragraph') 
     article_text = ''
 
     if article_picture_tag is not None:
@@ -41,6 +41,7 @@ def parse_text(soup):
 
     print('{0}\n{1}\n{2}\n\n{3}'.format(article_title, article_summary, article_picture, article_text))
 
+# parsing the unique urls for politico state artices
 def parse_text_states(soup):
     article_picture_tag = soup.picture
     article_picture = ''
