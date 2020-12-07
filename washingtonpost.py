@@ -1,3 +1,5 @@
+# python program to scrape the contents of a washington post article
+
 from bs4 import BeautifulSoup, Tag
 from urllib.request import Request, urlopen
 import re
