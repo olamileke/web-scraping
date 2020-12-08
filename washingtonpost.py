@@ -47,7 +47,10 @@ elif re.match('https://(www.)*washingtonpost.com/travel(.*)', url) is not None:
     print('sorry. I do not scrape washington post travel links')
 
 else:
-    req = Request(url, headers={'User-Agent' : 'Mozilla/5.0'})
-    html = urlopen(req).read().decode('utf-8')
-    soup = BeautifulSoup(html, 'html.parser')
-    parse_text(soup)
+    try:
+        req = Request(url, headers={'User-Agent' : 'Mozilla/5.0'})
+        html = urlopen(req).read().decode('utf-8')
+        soup = BeautifulSoup(html, 'html.parser')
+        parse_text(soup)
+    except:
+        print('There was a problem scraping the data')
